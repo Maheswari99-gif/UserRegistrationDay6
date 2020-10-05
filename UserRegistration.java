@@ -10,18 +10,18 @@ public class UserRegistration {
 	
 	private static final Logger LOG = LogManager.getLogger(UserRegistration.class);
  	
-	private boolean validateFirstName(String firstName) {
-		return firstName.matches("^[A-Z]{1}[a-z]{2,}$");
+	private boolean validateLastName(String lastName) {
+		return lastName.matches("^[A-Z]{1}[a-z]{2,}$");
 	}
 	public static void main( String[] args ) {
 		Scanner sc = new Scanner(System.in);
-    	LOG.info("First Name: ");
-    	String firstName = sc.nextLine();
+    	LOG.info("Last Name: ");
+    	String lastName = sc.nextLine();
     	UserRegistration userRegistration = new UserRegistration();
-    	if(userRegistration.validateFirstName(firstName))
-    		LOG.info("Valid First Name");
+    	if(userRegistration.validateLastName(lastName))
+    		LOG.info("Valid");
     	else
-    		LOG.info("Invalid First Name");
+    		LOG.info("Invalid");
     } 
 }
 
