@@ -11,7 +11,7 @@ public class UserRegistration {
 	private static final Logger LOG = LogManager.getLogger(UserRegistration.class);
  	
 	private boolean validatePassword(String password) {
-		return password.matches("(?=.*[A-Z])[A-Za-z]{8,}$");
+		return password.matches("(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$");
 	}
 	public static void main( String[] args ) {
 		Scanner sc = new Scanner(System.in);
