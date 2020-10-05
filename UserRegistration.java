@@ -10,15 +10,15 @@ public class UserRegistration {
 	
 	private static final Logger LOG = LogManager.getLogger(UserRegistration.class);
  	
-	private boolean validateEmail(String email) {
-		return email.matches("^[a-zA-Z0-9_]+([.+-]{1}[a-zA-Z0-9_]+)*[@]{1}[a-zA-Z0-9]+[.]{1}[a-zA-Z0-9]{2,}([.]{1}[a-zA-Z]{2,})?$");
+	private boolean validateMobileNo(String no) {
+		return no.matches("^[0-9]{2}[ ][0-9]{10}$");
 	}
 	public static void main( String[] args ) {
 		Scanner sc = new Scanner(System.in);
-    	LOG.info("Email Id: ");
-    	String email = sc.nextLine();
+    	LOG.info("Mobile Number: ");
+    	String no = sc.nextLine();
     	UserRegistration userRegistration = new UserRegistration();
-    	if(userRegistration.validateEmail(email))
+    	if(userRegistration.validateMobileNo(no))
     		LOG.info("Valid");
     	else
     		LOG.info("Invalid");
