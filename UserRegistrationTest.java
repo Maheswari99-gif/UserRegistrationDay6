@@ -1,91 +1,72 @@
 package com.capgemini.userregistration;
+
+
 import org.junit.Assert;
 import org.junit.Test;
 
 public class UserRegistrationTest {
 	//only tests for first name performed as RegEx for first and last names are same
     @Test
-    public void givenFirstName_WhenProper_ShouldReturnTrue() {
+    public void givenFirstName_WhenProper_ShouldReturnTrue() throws UserException{
     	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validateFirstName("Maheswari");
+    	boolean result = false;
+    	result = userValidator.validateFirstName("Maheswari");
     	Assert.assertTrue(result);
     }
     
     @Test
-    public void givenFirstName_WhenNotStartCapital_ShouldReturnFalse() {
+    public void givenFirstName_WhenNotStartCapital_ShouldReturnFalse()throws UserException {
     	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validateFirstName("mahi");
-    	Assert.assertFalse(result);
+		userValidator.validateFirstName("mahi");
     }
     
     @Test
-    public void givenFirstName_WhenContainOtherThanLetters_ShouldReturnFalse() {
+    public void givenFirstName_WhenContainOtherThanLetters_ShouldReturnFalse()throws UserException {
     	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validateFirstName("m@hi");
-    	Assert.assertFalse(result);
+		userValidator.validateFirstName("m@hi");
     }
+    
     @Test
-    public void givenLastName_WhenProper_ShouldReturnTrue() {
+    public void givenEmailId_WhenPoper_ShouldReturnTrue()throws UserException {
     	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validateLastName("Koyyani");
+    	boolean result = false;
+		result = userValidator.validateEmail("maheswarikoyyani999@gmail.com");
     	Assert.assertTrue(result);
     }
     
     @Test
-    public void givenLastName_WhenNotStartCapital_ShouldReturnFalse() {
+    public void givenEmailId_WhenNotAtTheSymbol_ShouldReturnFalse() throws UserException {
     	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validateLastName("koyyani");
-    	Assert.assertFalse(result);
+		userValidator.validateEmail("mahi.com");
     }
     
     @Test
-    public void givenLastName_WhenContainOtherThanLetters_ShouldReturnFalse() {
+    public void givenMobileNo_WhenProper_ShouldReturnTrue() throws UserException{
     	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validateLastName("k@yyani");
-    	Assert.assertFalse(result);
-    }
-    
-    @Test
-    public void givenEmailId_WhenPoper_ShouldReturnTrue() {
-    	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validateEmail("maheswarikoyyani999@gmail.com");
+    	boolean result = false;
+		result = userValidator.validateMobileNo("91 8639799567");
     	Assert.assertTrue(result);
     }
     
     @Test
-    public void givenEmailId_WhenNotAtTheSymbol_ShouldReturnFalse() {
+    public void givenMobileNo_WhenNotProper_ShouldReturnFalse() throws UserException {
     	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validateEmail("mahi.com");
-    	Assert.assertFalse(result);
+		userValidator.validateMobileNo("564321");
     }
     
     @Test
-    public void givenMobileNo_WhenProper_ShouldReturnTrue() {
+    public void givenPassword_WhenProper_ShouldReturnTrue() throws UserException {
     	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validateMobileNo("91 8639799567");
+    	boolean result = false;
+		result = userValidator.validatePassword("Msri@12");
     	Assert.assertTrue(result);
     }
     
     @Test
-    public void givenMobileNo_WhenNotProper_ShouldReturnFalse() {
+    public void givenPassword_WhenMoreThanOneSpecialChar_ShouldReturnFalse() throws UserException {
     	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validateMobileNo("564321");
-    	Assert.assertFalse(result);
+		boolean result=false;
+		result=userValidator.validatePassword("masr9");
+		Assert.assertFalse(result);
     }
-    
-   
-    
-    @Test
-    public void givenPassword_WhenProper_ShouldReturnTrue() {
-    	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validatePassword("Msri@12");
-    	Assert.assertTrue(result);
     }
-    
-    @Test
-    public void givenPassword_WhenNotProper_ShouldReturnFalse() {
-    	UserRegistration userValidator =  new UserRegistration();
-    	boolean result = userValidator.validatePassword("masr9");
-    	Assert.assertFalse(result);
-    }
-}

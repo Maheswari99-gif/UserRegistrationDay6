@@ -25,7 +25,7 @@ public class ValidateEmail {
 	}
 	
 	@Test
-	public void validateEmail() {
+	public void validateEmail() throws UserException {
 		UserRegistration emailValidator = new UserRegistration();
 		assertEquals(expectedValidation, emailValidator.validateEmail(givenEmailId));
 	}
